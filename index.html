@@ -693,6 +693,121 @@
       white-space: nowrap;
     }
 
+    /* ─── GALLERY ─── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 900px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 1px solid var(--border);
+    }
+
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.07); }
+
+    .gallery-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 0.75rem;
+    }
+
+    .gallery-item:hover .overlay { opacity: 1; }
+
+    .overlay-text {
+      font-size: 0.72rem;
+      color: #fff;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .lightbox.active { display: flex; }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 10px;
+      object-fit: contain;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 1.25rem; right: 1.5rem;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .lightbox-close:hover { opacity: 1; }
+
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 1.5rem;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+    .lightbox-nav.prev { left: 1rem; }
+    .lightbox-nav.next { right: 1rem; }
+
+    .lightbox-counter {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
     /* ─── AWARDS ─── */
     .awards-list {
       display: grid;
@@ -872,6 +987,7 @@
     <li><a href="#education">Education</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#awards">Awards</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -916,7 +1032,7 @@
       </div>
       <div class="stat">
         <div class="stat-num">1st</div>
-        <div class="stat-label">Hackathon Win</div>
+        <div class="stat-label">Winner - Reimagine e-waste</div>
       </div>
     </div>
   </div>
@@ -1213,6 +1329,52 @@
   </div>
 </section>
 
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-label">// Highlights</div>
+  <h2 class="section-title">Hackathon & Felicitation Moments</h2>
+  <div class="section-line"></div>
+  <div class="gallery-grid">
+    <div class="gallery-item fade-up" onclick="openLightbox(0)">
+      <img src="images/img1.jpg" alt="Hackathon Win" loading="lazy" />
+      <div class="overlay"><div class="overlay-text">REimagine E-Waste Hackathon 6</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox(1)">
+      <img src="images/img2.jpg" alt="Felicitation by CM" loading="lazy" />
+      <div class="overlay"><div class="overlay-text">Felicitation by Chief Minister, Karnataka</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox(2)">
+      <img src="images/img3.jpg" alt="Award Ceremony" loading="lazy" />
+      <div class="overlay"><div class="overlay-text">Award Ceremony</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox(3)">
+      <img src="images/img4.jpg" alt="With Deputy CM" loading="lazy" />
+      <div class="overlay"><div class="overlay-text">With Deputy Chief Minister, Karnataka</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox(4)">
+      <img src="images/img5.jpg" alt="KSPCB Event" loading="lazy" />
+      <div class="overlay"><div class="overlay-text">KSPCB Innovation Challenge</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox(5)">
+      <img src="images/img6.jpg" alt="Team Photo" loading="lazy" />
+      <div class="overlay"><div class="overlay-text">Team at the Hackathon</div></div>
+    </div>
+    <div class="gallery-item fade-up" onclick="openLightbox(5)">
+      <img src="images/img6.jpg" alt="InUnity Event" loading="lazy" />
+      <div class="overlay"><div class="overlay-text">InUnity & KSPCB Event</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-nav prev" onclick="changeImg(-1)">‹</button>
+  <img id="lightboxImg" src="" alt="" />
+  <button class="lightbox-nav next" onclick="changeImg(1)">›</button>
+  <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
 <!-- AWARDS -->
 <section id="awards">
   <div class="section-label">// Recognition</div>
@@ -1291,6 +1453,42 @@
   const navLinks = document.getElementById('navLinks');
   hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Lightbox
+  const images = [
+    'images/img1.jpg','images/img2.jpg','images/img3.jpg',
+    'images/img4.jpg','images/img5.jpg','images/img6.jpg'
+  ];
+  let current = 0;
+
+  function openLightbox(i) {
+    current = i;
+    document.getElementById('lightboxImg').src = images[i];
+    document.getElementById('lightboxCounter').textContent = (i + 1) + ' / ' + images.length;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function closeLightboxOnBg(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+
+  function changeImg(dir) {
+    current = (current + dir + images.length) % images.length;
+    document.getElementById('lightboxImg').src = images[current];
+    document.getElementById('lightboxCounter').textContent = (current + 1) + ' / ' + images.length;
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') changeImg(1);
+    if (e.key === 'ArrowLeft') changeImg(-1);
+  });
 
   // Scroll animations
   const observer = new IntersectionObserver((entries) => {
