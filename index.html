@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yasmeen M S — VLSI Design Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0e17;
+      --bg2: #0f1421;
+      --bg3: #141924;
+      --card: #161d2e;
+      --border: #1e2d45;
+      --accent: #00c8ff;
+      --accent2: #7b5ea7;
+      --accent3: #00e5a0;
+      --text: #e2e8f0;
+      --text2: #94a3b8;
+      --text3: #64748b;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10, 14, 23, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text2);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,200,255,0.08) 0%, transparent 70%),
+                  radial-gradient(ellipse 60% 50% at 80% 80%, rgba(123,94,167,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,200,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,200,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0,200,255,0.1);
+      border: 1px solid rgba(0,200,255,0.25);
+      border-radius: 100px;
+      padding: 0.35rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--accent3);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--white) 40%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-title {
+      font-size: 1.15rem;
+      color: var(--text2);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--text3);
+      margin-bottom: 2.5rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .btn-primary:hover { background: #33d4ff; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,200,255,0.3); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── SECTION ─── */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-line {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+      margin-bottom: 3rem;
+    }
+
+    /* ─── EXPERIENCE ─── */
+    .exp-list { display: flex; flex-direction: column; gap: 2rem; }
+
+    .exp-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      position: relative;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .exp-card:hover { border-color: rgba(0,200,255,0.3); transform: translateY(-2px); }
+
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 20px; bottom: 20px;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+      border-radius: 0 2px 2px 0;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .exp-role {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: rgba(0,200,255,0.1);
+      border: 1px solid rgba(0,200,255,0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .exp-company {
+      font-size: 0.88rem;
+      color: var(--accent3);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.88rem;
+      color: var(--text2);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.7rem;
+      top: 0.15rem;
+    }
+
+    .exp-bullets li strong { color: var(--text); }
+
+    .sub-bullets {
+      margin-top: 0.4rem;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding-left: 1rem;
+    }
+
+    .sub-bullets li {
+      font-size: 0.83rem;
+      color: var(--text3);
+      padding-left: 1.2rem;
+    }
+
+    .sub-bullets li::before {
+      content: '◦';
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+    }
+
+    /* ─── PROJECTS ─── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .project-card:hover { border-color: rgba(0,200,255,0.3); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+
+    .project-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, rgba(0,200,255,0.15), rgba(123,94,167,0.15));
+      border: 1px solid rgba(0,200,255,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .project-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.4;
+    }
+
+    .project-desc {
+      font-size: 0.83rem;
+      color: var(--text2);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .project-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text3);
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 500;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      background: rgba(0,200,255,0.08);
+      border: 1px solid rgba(0,200,255,0.15);
+      color: var(--accent);
+    }
+
+    .tag.purple {
+      background: rgba(123,94,167,0.1);
+      border-color: rgba(123,94,167,0.25);
+      color: #b794f4;
+    }
+
+    .tag.green {
+      background: rgba(0,229,160,0.08);
+      border-color: rgba(0,229,160,0.2);
+      color: var(--accent3);
+    }
+
+    /* ─── PUBLICATIONS ─── */
+    .pub-list { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .pub-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+
+    .pub-card:hover { border-color: rgba(0,229,160,0.3); }
+
+    .pub-num {
+      min-width: 36px; height: 36px;
+      background: linear-gradient(135deg, rgba(0,229,160,0.15), rgba(0,200,255,0.1));
+      border: 1px solid rgba(0,229,160,0.25);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent3);
+    }
+
+    .pub-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.35rem;
+      line-height: 1.5;
+    }
+
+    .pub-venue {
+      font-size: 0.8rem;
+      color: var(--text2);
+    }
+
+    .pub-venue span {
+      font-style: italic;
+      color: var(--accent3);
+    }
+
+    .pub-link {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s, gap 0.2s;
+      gap: 0.25rem;
+    }
+
+    .pub-link:hover { color: #33d4ff; gap: 0.45rem; }
+
+    /* ─── EDUCATION ─── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .edu-card:hover { border-color: rgba(123,94,167,0.4); transform: translateY(-2px); }
+
+    .edu-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .edu-school {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-course {
+      font-size: 0.8rem;
+      color: var(--text3);
+      margin-bottom: 1rem;
+    }
+
+    .edu-score {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--accent2);
+      background: -webkit-linear-gradient(var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .edu-year {
+      font-size: 0.75rem;
+      color: var(--text3);
+      margin-top: 0.25rem;
+    }
+
+    /* ─── SKILLS ─── */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-group {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+    }
+
+    .skill-group-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-group-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .skill-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      padding: 0.35rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      transition: all 0.2s;
+    }
+
+    .chip:hover {
+      background: rgba(0,200,255,0.1);
+      border-color: rgba(0,200,255,0.3);
+      color: var(--accent);
+    }
+
+    .chip.highlight {
+      background: rgba(0,200,255,0.08);
+      border-color: rgba(0,200,255,0.2);
+      color: var(--accent);
+    }
+
+    /* ─── LEADERSHIP ─── */
+    .leadership-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .lead-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      transition: border-color 0.2s;
+    }
+
+    .lead-item:hover { border-color: rgba(0,200,255,0.25); }
+
+    .lead-left { display: flex; align-items: center; gap: 1rem; }
+
+    .lead-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .lead-role {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .lead-org {
+      font-size: 0.8rem;
+      color: var(--text3);
+      margin-top: 0.1rem;
+    }
+
+    .lead-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    /* ─── AWARDS ─── */
+    .awards-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .award-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .award-card:hover { border-color: rgba(0,229,160,0.3); transform: translateY(-2px); }
+
+    .award-card::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle at top right, rgba(0,229,160,0.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .award-medal {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .award-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .award-desc {
+      font-size: 0.8rem;
+      color: var(--text3);
+      line-height: 1.5;
+    }
+
+    .award-date {
+      margin-top: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent3);
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 2rem;
+    }
+
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-text h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .contact-text p {
+      color: var(--text2);
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      text-decoration: none;
+      color: var(--text2);
+      font-size: 0.88rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-item:hover { border-color: rgba(0,200,255,0.3); color: var(--accent); }
+
+    .contact-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(0,200,255,0.1);
+      border: 1px solid rgba(0,200,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text3);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer span { color: var(--accent); }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 60px; left: 0; right: 0;
+        background: var(--bg2);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 2rem;
+        gap: 1.25rem;
+      }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 500px) {
+      section { padding: 3.5rem 1.25rem; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">&lt;YMS /&gt;</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Available for Opportunities</div>
+    <h1>Yasmeen M S</h1>
+    <p class="hero-title">
+      <span>VLSI Design Engineer</span> &nbsp;·&nbsp; ECE @ Oxford College of Engineering
+    </p>
+    <p class="hero-desc">
+      Specializing in RTL design, FPGA development, low-power architectures, and digital VLSI.
+      IEEE SPS Chair · Published Researcher · Hackathon Champion.
+    </p>
+    <div class="hero-links">
+      <a href="https://www.linkedin.com/in/yasmeenms" target="_blank" rel="noopener" class="btn btn-primary">
+        &#128279; LinkedIn
+      </a>
+      <a href="mailto:msyasmeen0504@gmail.com" class="btn btn-outline">
+        &#9993; Get in Touch
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">9.2</div>
+        <div class="stat-label">CGPA</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Publications</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1st</div>
+        <div class="stat-label">Hackathon Win</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">// Work Experience</div>
+  <h2 class="section-title">Professional Experience</h2>
+  <div class="section-line"></div>
+  <div class="exp-list">
+
+    <div class="exp-card fade-up">
+      <div class="exp-header">
+        <div class="exp-role">FPGA Intern</div>
+        <div class="exp-date">JAN – MAY 2026</div>
+      </div>
+      <div class="exp-company">Happiest Minds Technologies Pvt. Ltd. &nbsp;·&nbsp; Client: Onesecurix</div>
+      <ul class="exp-bullets">
+        <li>Worked on <strong>MACSec – Ethernet L2 security</strong> design focusing on high-speed data path architecture using the <strong>AXI4-Stream protocol</strong>.</li>
+        <li>Integrated <strong>AXI-Stream FIFOs</strong> to manage packet buffering.</li>
+        <li>Analyzed official <strong>AMD/Xilinx IP documentation</strong> (DCMAC &amp; HSC) to design and simulate RTL logic.</li>
+        <li>Learnt networking protocols and cryptographic algorithms required for the project.</li>
+        <li>Designed logic for:
+          <ul class="sub-bullets">
+            <li>Traffic Generator — Implemented using System Verilog</li>
+            <li>Traffic Merger &amp; Distributor</li>
+            <li>Packet Splitter &amp; Merger</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="exp-card fade-up">
+      <div class="exp-header">
+        <div class="exp-role">AR/VR Intern</div>
+        <div class="exp-date">JAN – JULY 2025</div>
+      </div>
+      <div class="exp-company">SP4 Ameya Innovation Labs &nbsp;·&nbsp; AR/VR at the Forefront of Rehabilitation</div>
+      <ul class="exp-bullets">
+        <li>Built <strong>Python-based AR/VR rehabilitation games</strong> to enhance recovery through immersive, interactive therapy.</li>
+        <li>Utilized Python libraries including <strong>OpenCV</strong> and <strong>MediaPipe</strong> for real-time motion tracking.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">// Projects</div>
+  <h2 class="section-title">Featured Projects</h2>
+  <div class="section-line"></div>
+  <div class="projects-grid">
+
+    <div class="project-card fade-up">
+      <div class="project-icon">⚙️</div>
+      <div class="project-name">ALU Using Pseudo Dynamic Buffer-Based Domino Logic</div>
+      <div class="project-desc">Designing a low-power ALU and evaluating it using Pseudo Dynamic Buffer-Based Domino (PDB) logic. Synthesis in Cadence Genus and circuit-level validation in Cadence Spectre to optimize dynamic power.</div>
+      <div class="project-tags">
+        <span class="tag">Cadence Genus</span>
+        <span class="tag">Cadence Spectre</span>
+        <span class="tag green">Low Power</span>
+      </div>
+      <div class="project-footer">
+        <div class="project-date">SEP 2025 – JAN 2026</div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-icon">🤖</div>
+      <div class="project-name">Uncertainty-Based PPA Prediction</div>
+      <div class="project-desc">ML and Cadence semi-custom based pre-layout PPA (Power, Performance, Area) estimation using RTL synthesis data. Enables early design-space exploration by skipping expensive place &amp; route steps.</div>
+      <div class="project-tags">
+        <span class="tag purple">Machine Learning</span>
+        <span class="tag">Cadence</span>
+        <span class="tag">RTL Synthesis</span>
+      </div>
+      <div class="project-footer">
+        <div class="project-date">APR 2026</div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-icon">🔒</div>
+      <div class="project-name">Low Power Design & Optimization of SHA Algorithm</div>
+      <div class="project-desc">Developing low-power RTL code in Verilog for SHA-2 based security systems and implementation on FPGA for hardware validation. Targets cryptographic hardware acceleration with minimal power overhead.</div>
+      <div class="project-tags">
+        <span class="tag">Verilog</span>
+        <span class="tag">FPGA</span>
+        <span class="tag green">SHA-2</span>
+      </div>
+      <div class="project-footer">
+        <div class="project-date">MAR 2026</div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-icon">🧫</div>
+      <div class="project-name">High Value Metal Extraction from E-waste using Micro-organisms</div>
+      <div class="project-desc">Aimed at reducing power consumption in traditional e-waste industries by executing bio-leaching technique using microorganisms to extract high-value metals sustainably.</div>
+      <div class="project-tags">
+        <span class="tag green">Sustainability</span>
+        <span class="tag purple">Bio-leaching</span>
+        <span class="tag">E-waste</span>
+      </div>
+      <div class="project-footer">
+        <div class="project-date">JUN 2023 – DEC 2024</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-label">// Research</div>
+  <h2 class="section-title">Publications</h2>
+  <div class="section-line"></div>
+  <div class="pub-list">
+
+    <div class="pub-card fade-up">
+      <div class="pub-num">01</div>
+      <div>
+        <div class="pub-title">Design of Early PPA Estimation ML Model Based on Uncertainty Quantification to Skip Place &amp; Route</div>
+        <div class="pub-venue">International Conference on Intelligent and Innovative Technologies in Computing, Electrical and Electronics &nbsp;·&nbsp; <span>IITCEE – IEEE Xplore (2026)</span></div>
+        <a href="https://lnkd.in/gAx7iQU3" target="_blank" rel="noopener" class="pub-link">View Paper ↗</a>
+      </div>
+    </div>
+
+    <div class="pub-card fade-up">
+      <div class="pub-num">02</div>
+      <div>
+        <div class="pub-title">Power-Optimized ALU Framework Based on Pseudo Dynamic Buffer Domino Logic</div>
+        <div class="pub-venue">4th IEEE International Conference on Knowledge Engineering &amp; Communication Systems &nbsp;·&nbsp; <span>ICKECS 2026</span></div>
+        <a href="https://ieeexplore.ieee.org/document/11394168" target="_blank" rel="noopener" class="pub-link">View Paper ↗</a>
+      </div>
+    </div>
+
+    <div class="pub-card fade-up">
+      <div class="pub-num">03</div>
+      <div>
+        <div class="pub-title">Med-tech Device Security through Advanced Server Cryptography</div>
+        <div class="pub-venue">International Journal of Information Technology &nbsp;·&nbsp; <span>IJIT (2024)</span></div>
+        <a href="https://rdcu.be/d4mLY" target="_blank" rel="noopener" class="pub-link">View Paper ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">// Education</div>
+  <h2 class="section-title">Academic Background</h2>
+  <div class="section-line"></div>
+  <div class="edu-grid">
+
+    <div class="edu-card fade-up">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-school">The Oxford College of Engineering</div>
+      <div class="edu-course">B.E. — Electronics &amp; Communication Engineering (ECE)</div>
+      <div class="edu-score">CGPA: 9.2</div>
+      <div class="edu-year">2022 – 2026</div>
+    </div>
+
+    <div class="edu-card fade-up">
+      <div class="edu-icon">📚</div>
+      <div class="edu-school">Christ Junior College</div>
+      <div class="edu-course">PCMC — Pre-University (PUC)</div>
+      <div class="edu-score">90.5%</div>
+      <div class="edu-year">2020 – 2022</div>
+    </div>
+
+    <div class="edu-card fade-up">
+      <div class="edu-icon">🏫</div>
+      <div class="edu-school">Sujana Convent</div>
+      <div class="edu-course">SSLC (Class X)</div>
+      <div class="edu-score">93.76%</div>
+      <div class="edu-year">2019 – 2020</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">// Skills</div>
+  <h2 class="section-title">Skills &amp; Competencies</h2>
+  <div class="section-line"></div>
+  <div class="skills-container">
+
+    <div class="skill-group fade-up">
+      <div class="skill-group-title">Technical</div>
+      <div class="skill-chips">
+        <span class="chip highlight">Verilog</span>
+        <span class="chip highlight">System Verilog</span>
+        <span class="chip highlight">Vivado</span>
+        <span class="chip highlight">Cadence</span>
+        <span class="chip">FPGA Design</span>
+        <span class="chip">RTL Design</span>
+        <span class="chip">AXI4-Stream</span>
+        <span class="chip">Networking Protocols</span>
+        <span class="chip">Digital Electronics</span>
+        <span class="chip">Cryptographic Algorithms</span>
+      </div>
+    </div>
+
+    <div class="skill-group fade-up">
+      <div class="skill-group-title">Soft Skills</div>
+      <div class="skill-chips">
+        <span class="chip">Leadership</span>
+        <span class="chip">Team Collaboration</span>
+        <span class="chip">Problem Solving</span>
+        <span class="chip">Adaptability</span>
+      </div>
+    </div>
+
+    <div class="skill-group fade-up">
+      <div class="skill-group-title">Languages</div>
+      <div class="skill-chips">
+        <span class="chip highlight">English (Native/Bilingual)</span>
+        <span class="chip highlight">Urdu (Native)</span>
+        <span class="chip">Kannada (Conversational)</span>
+        <span class="chip">Hindi (Conversational)</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="section-label">// Leadership</div>
+  <h2 class="section-title">Leadership Experience</h2>
+  <div class="section-line"></div>
+  <div class="leadership-list">
+
+    <div class="lead-item fade-up">
+      <div class="lead-left">
+        <div class="lead-dot"></div>
+        <div>
+          <div class="lead-role">Chair, SPS (Signal Processing Society)</div>
+          <div class="lead-org">IEEE · The Oxford College of Engineering</div>
+        </div>
+      </div>
+      <div class="lead-date">NOV 2024</div>
+    </div>
+
+    <div class="lead-item fade-up">
+      <div class="lead-left">
+        <div class="lead-dot"></div>
+        <div>
+          <div class="lead-role">Core Head</div>
+          <div class="lead-org">TOCE CULT · The Oxford College of Engineering</div>
+        </div>
+      </div>
+      <div class="lead-date">NOV 2024</div>
+    </div>
+
+    <div class="lead-item fade-up">
+      <div class="lead-left">
+        <div class="lead-dot"></div>
+        <div>
+          <div class="lead-role">Secretary</div>
+          <div class="lead-org">Science Association · The Oxford College of Engineering</div>
+        </div>
+      </div>
+      <div class="lead-date">MAR 2023</div>
+    </div>
+
+    <div class="lead-item fade-up">
+      <div class="lead-left">
+        <div class="lead-dot"></div>
+        <div>
+          <div class="lead-role">Organizer</div>
+          <div class="lead-org">NGO · STEM Community</div>
+        </div>
+      </div>
+      <div class="lead-date">DEC 2022</div>
+    </div>
+
+    <div class="lead-item fade-up">
+      <div class="lead-left">
+        <div class="lead-dot"></div>
+        <div>
+          <div class="lead-role">Speaker</div>
+          <div class="lead-org">Student Parliament · Sujana Convent</div>
+        </div>
+      </div>
+      <div class="lead-date">2019 – 20</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-label">// Recognition</div>
+  <h2 class="section-title">Awards &amp; Recognition</h2>
+  <div class="section-line"></div>
+  <div class="awards-list">
+
+    <div class="award-card fade-up">
+      <div class="award-medal">🥇</div>
+      <div class="award-title">1st Place — REimagine E-Waste Hackathon 6 &amp; Innovation Challenge</div>
+      <div class="award-desc">InUnity &amp; Karnataka State Pollution Control Board (KSPCB). Felicitated by the Honorable Chief Minister &amp; Deputy Chief Minister, State Government of Karnataka.</div>
+      <div class="award-date">JUNE 2023</div>
+    </div>
+
+    <div class="award-card fade-up">
+      <div class="award-medal">🥈</div>
+      <div class="award-title">2nd Place — Sparkathon, Christ University, Kengeri</div>
+      <div class="award-desc">Inter-college competition based on ideation of innovative ideas centered on Sustainable Development Goals (SDGs).</div>
+      <div class="award-date">NOV 2024</div>
+    </div>
+
+    <div class="award-card fade-up">
+      <div class="award-medal">🥈</div>
+      <div class="award-title">2nd Place — Argu Vista, Inter College Debate Competition</div>
+      <div class="award-desc">Inter-college debate competition held at Dayanand Sagar College of Engineering.</div>
+      <div class="award-date">JULY 2024</div>
+    </div>
+
+    <div class="award-card fade-up">
+      <div class="award-medal">🏅</div>
+      <div class="award-title">Gold Medalist — NIIT-Nguru Quiz</div>
+      <div class="award-desc">Gold medal awarded at the NIIT-Nguru Quiz competition, Sujana Convent.</div>
+      <div class="award-date">2019</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-inner">
+    <div class="section-label">// Contact</div>
+    <h2 class="section-title" style="margin-bottom:0.5rem;">Get In Touch</h2>
+    <div class="section-line"></div>
+    <div class="contact-grid">
+      <div class="contact-text">
+        <h2>Let's Connect</h2>
+        <p>I'm currently open to full-time VLSI / RTL design roles, research collaborations, and internship opportunities. Feel free to reach out — I'd love to hear from you.</p>
+      </div>
+      <div class="contact-items">
+        <a href="mailto:msyasmeen0504@gmail.com" class="contact-item">
+          <div class="contact-icon">✉️</div>
+          msyasmeen0504@gmail.com
+        </a>
+        <a href="tel:+918904293664" class="contact-item">
+          <div class="contact-icon">📞</div>
+          +91 8904293664
+        </a>
+        <a href="https://www.linkedin.com/in/yasmeenms" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-icon">💼</div>
+          linkedin.com/in/yasmeenms
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Designed &amp; built for <span>Yasmeen M S</span> &nbsp;·&nbsp; VLSI Design Engineer &nbsp;·&nbsp; 2026
+</footer>
+
+<script>
+  // Mobile nav
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
